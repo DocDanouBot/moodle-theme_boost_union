@@ -1288,7 +1288,10 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $title = get_string('maxlogowidth', 'theme_boost_union', null, true);
         $description = get_string('maxlogowidth_desc', 'theme_boost_union', null, true);
         $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_ALPHANUM);
+        // Prepare regular expression for checking if the value is a percent number (from 0% to 100%) or a pixel number
+        // (with 3 or 4 digits) or a viewport width number (from 0 to 100).
+        $widthregex = '/^((\d{1,2}|100)%)|((\d{1,2}|100)vw)|(\d{3,4}px)$/';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, $widthregex, 6);
         $tab->add($setting);
 
         // Setting: Show starred courses popover in the navbar.
