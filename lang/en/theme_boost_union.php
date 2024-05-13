@@ -121,6 +121,9 @@ $string['bootstrapcolordangersetting'] = 'Bootstrap color for "Danger"';
 $string['bootstrapcolordangersetting_desc'] = 'The Bootstrap color for "Danger"';
 // ... Section: Navbar.
 $string['navbarheading'] = 'Navbar';
+// ... Section: Navbar logo max width.
+$string['maxlogowidth'] = 'Navbar';
+$string['maxlogowidth_desc'] = 'Navbar';
 // ... ... Setting: Navbar color.
 $string['navbarcolorsetting'] = 'Navbar color';
 $string['navbarcolorsetting_desc'] = 'With this setting, you can change the navbar color from the default light navbar to a dark one or a colored one.';

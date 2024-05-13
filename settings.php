@@ -1282,6 +1282,15 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $setting = new admin_setting_heading($name, $title, null);
         $tab->add($setting);
 
+        // Setting: add extra SCSS if logo icon is too broad / wrong aspect ratio. See Issue-544.
+        // DANOU - MT-4714
+        $name = 'theme_boost_union/maxlogowidth';
+        $title = get_string('maxlogowidth', 'theme_boost_union', null, true);
+        $description = get_string('maxlogowidth_desc', 'theme_boost_union', null, true);
+        $default = '';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_ALPHANUM);
+        $tab->add($setting);
+
         // Setting: Show starred courses popover in the navbar.
         $name = 'theme_boost_union/shownavbarstarredcourses';
         $title = get_string('shownavbarstarredcoursessetting', 'theme_boost_union', null, true);
