@@ -122,8 +122,8 @@ $string['bootstrapcolordangersetting_desc'] = 'The Bootstrap color for "Danger"'
 // ... Section: Navbar.
 $string['navbarheading'] = 'Navbar';
 // ... Section: Navbar logo max width.
-$string['maxlogowidth'] = 'Navbar';
-$string['maxlogowidth_desc'] = 'Navbar';
+$string['maxlogowidth'] = 'Maximal width of header logo if it should be limited';
+$string['maxlogowidth_desc'] = 'If the logo is too broad or has and special aspect ratio, you can set the maximal width of the logo in the navbar header. Use CSS notation. Possible values can have some digits and end with `px`, `%`, `vw` or the field can be left empty if you do not want to use this setting.';
 // ... ... Setting: Navbar color.
 $string['navbarcolorsetting'] = 'Navbar color';
 $string['navbarcolorsetting_desc'] = 'With this setting, you can change the navbar color from the default light navbar to a dark one or a colored one.';
