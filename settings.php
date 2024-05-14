@@ -271,7 +271,6 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $tab->add($setting);
 
         // Setting: add extra SCSS if logo icon is too broad / wrong aspect ratio. See Issue-544.
-        // DANOU - MT-4714
         $name = 'theme_boost_union/maxlogowidth';
         $title = get_string('maxlogowidth', 'theme_boost_union', null, true);
         $description = get_string('maxlogowidth_desc', 'theme_boost_union', null, true);
