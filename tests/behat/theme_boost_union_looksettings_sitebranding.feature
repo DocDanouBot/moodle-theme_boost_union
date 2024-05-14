@@ -108,12 +108,22 @@ Feature: Configuring the theme_boost_union plugin for the "Site branding" tab on
     When I log in as "admin"
     And I navigate to "Appearance > Boost Union > Look" in site administration
     And I click on "Site branding" "link" in the "#adminsettings .nav-tabs" "css_element"
-
+    And I set the field "Maximal width of logo" to "200px"
     And I press "Save changes"
     And I am on site homepage
-    Then DOM element ".navbar-brand img.logo" should have computed style "max-width" "15vw"
+    Then DOM element ".navbar-brand img.logo" should have computed style "max-width" "200px"
     And DOM element ".navbar-brand img.logo" should have computed style "height" "auto"
-    
+
+  @javascript @_file_upload
+  Scenario: Setting: Logo max-width - limit logo through admin settings - check regex to limit entry (countercheck)
+    When I log in as "admin"
+    And I navigate to "Appearance > Boost Union > Look" in site administration
+    And I click on "Site branding" "link" in the "#adminsettings .nav-tabs" "css_element"
+    And I set the field "Maximal width of logo" to "2px"
+    And I press "Save changes"
+    Then I should not see "Changes saved"
+    And I should see "Some settings were not changed due to an error."
+    And I should see "This value is not valid"
 
   @javascript @_file_upload
   Scenario: Setting: Compact logo - Upload a PNG compact logo to the theme and check that it is resized
