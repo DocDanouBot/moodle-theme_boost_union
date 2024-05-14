@@ -216,7 +216,7 @@ function theme_boost_union_get_pre_scss($theme) {
     }
     // Set variables which are read in settings by the logo maxwidth values. #544
     if (get_config('theme_boost_union', 'maxlogowidth')) {
-        $scss .= '.navbar img.logo{max-width:'.get_config('theme_boost_union', 'maxlogowidth').";}\n";
+        $scss .= ".navbar-brand img.logo{max-width:".get_config('theme_boost_union', 'maxlogowidth').";height:auto;}\n";
     }
     // Set custom Boost Union SCSS variable: The block region outside left width.
     $blockregionoutsideleftwidth = get_config('theme_boost_union', 'blockregionoutsideleftwidth');
