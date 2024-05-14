@@ -266,7 +266,7 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $title = get_string('logocompactsetting', 'theme_boost_union', null, true);
         $description = get_string('logocompactsetting_desc', 'theme_boost_union', null, true);
         $setting = new admin_setting_configstoredfile($name, $title, $description, 'logocompact', 0,
-            ['maxfiles' => 1, 'accepted_types' => 'web_image']);
+                ['maxfiles' => 1, 'accepted_types' => 'web_image']);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $tab->add($setting);
 
