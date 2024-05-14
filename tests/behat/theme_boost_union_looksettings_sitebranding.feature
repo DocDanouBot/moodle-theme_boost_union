@@ -92,8 +92,7 @@ Feature: Configuring the theme_boost_union plugin for the "Site branding" tab on
     And I am on site homepage
     Then ".navbar .logo" "css_element" should not exist
 
-  @javascript @_file_upload
-  Scenario: Setting: Logo max-width - limit logo width readout from config file
+  Scenario: Setting: Logo max-width - limit logo width readout from theme_config entry
     Given the following config values are set as admin:
       | config                 | value | plugin            |
       | maxlogowidth           | 100px | theme_boost_union |
@@ -103,18 +102,17 @@ Feature: Configuring the theme_boost_union plugin for the "Site branding" tab on
     Then DOM element ".navbar-brand img.logo" should have computed style "max-width" "100px"
     And DOM element ".navbar-brand img.logo" should have computed style "height" "auto"
 
-  @javascript @_file_upload
-  Scenario: Setting: Logo max-width - limit logo through admin settings
+  Scenario: Setting: Logo max-width - limit logo through admin settings - manual add the entry
     When I log in as "admin"
     And I navigate to "Appearance > Boost Union > Look" in site administration
     And I click on "Site branding" "link" in the "#adminsettings .nav-tabs" "css_element"
     And I set the field "Maximal width of logo" to "200px"
     And I press "Save changes"
+    And the theme cache is purged and the theme is reloaded
     And I am on site homepage
     Then DOM element ".navbar-brand img.logo" should have computed style "max-width" "200px"
     And DOM element ".navbar-brand img.logo" should have computed style "height" "auto"
 
-  @javascript @_file_upload
   Scenario: Setting: Logo max-width - limit logo through admin settings - check regex to limit entry (countercheck)
     When I log in as "admin"
     And I navigate to "Appearance > Boost Union > Look" in site administration
