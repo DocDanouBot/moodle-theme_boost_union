@@ -266,8 +266,20 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $title = get_string('logocompactsetting', 'theme_boost_union', null, true);
         $description = get_string('logocompactsetting_desc', 'theme_boost_union', null, true);
         $setting = new admin_setting_configstoredfile($name, $title, $description, 'logocompact', 0,
-                ['maxfiles' => 1, 'accepted_types' => 'web_image']);
+            ['maxfiles' => 1, 'accepted_types' => 'web_image']);
         $setting->set_updatedcallback('theme_reset_all_caches');
+        $tab->add($setting);
+
+        // Setting: add extra SCSS if logo icon is too broad / wrong aspect ratio. See Issue-544.
+        // DANOU - MT-4714
+        $name = 'theme_boost_union/maxlogowidth';
+        $title = get_string('maxlogowidth', 'theme_boost_union', null, true);
+        $description = get_string('maxlogowidth_desc', 'theme_boost_union', null, true);
+        $default = '';
+        // Prepare regular expression for checking if the value is a percent number (from 0% to 100%) or a pixel number
+        // (with 2 or 3 digits) or a viewport width number (from 0 to 100). Additionally the field can be left blank.
+        $maxlogowidthregex = '/^((\d{1,2}|100)%)|((\d{1,2}|100)vw)|(\d{2,3}px)|(^(?!.*\S))$/';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, $maxlogowidthregex, 6);
         $tab->add($setting);
 
         // Create favicon heading.

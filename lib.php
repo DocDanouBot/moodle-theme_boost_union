@@ -214,6 +214,10 @@ function theme_boost_union_get_pre_scss($theme) {
     if (get_config('theme_boost_union', 'blockdrawerwidth')) {
         $scss .= '$drawer-right-width: '.get_config('theme_boost_union', 'blockdrawerwidth').";\n";
     }
+    // Set variables which are read in settings by the logo maxwidth values. #544
+    if (get_config('theme_boost_union', 'maxlogowidth')) {
+        $scss .= '.navbar img.logo{max-width:'.get_config('theme_boost_union', 'maxlogowidth').";}\n";
+    }
 
     // Set custom Boost Union SCSS variable: The block region outside left width.
     $blockregionoutsideleftwidth = get_config('theme_boost_union', 'blockregionoutsideleftwidth');
