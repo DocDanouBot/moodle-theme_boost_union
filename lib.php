@@ -214,10 +214,7 @@ function theme_boost_union_get_pre_scss($theme) {
     if (get_config('theme_boost_union', 'blockdrawerwidth')) {
         $scss .= '$drawer-right-width: '.get_config('theme_boost_union', 'blockdrawerwidth').";\n";
     }
-    // Set variables which are read in settings by the logo maxwidth values. #544
-    if (get_config('theme_boost_union', 'maxlogowidth')) {
-        $scss .= ".navbar-brand img.logo{max-width:".get_config('theme_boost_union', 'maxlogowidth').";height:auto;}\n";
-    }
+
     // Set custom Boost Union SCSS variable: The block region outside left width.
     $blockregionoutsideleftwidth = get_config('theme_boost_union', 'blockregionoutsideleftwidth');
     // If the setting is not set.
@@ -330,6 +327,9 @@ function theme_boost_union_get_extra_scss($theme) {
 
     // Setting: Activity icon purpose.
     $content .= theme_boost_union_get_scss_for_activity_icon_purpose($theme);
+
+    // Setting: Navbar and icon styles.
+    $content .= theme_boost_union_get_scss_navbar($theme);
 
     // Setting: Mark external links.
     $content .= theme_boost_union_get_scss_to_mark_external_links($theme);

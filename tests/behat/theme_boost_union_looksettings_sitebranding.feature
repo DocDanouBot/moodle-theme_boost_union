@@ -92,26 +92,22 @@ Feature: Configuring the theme_boost_union plugin for the "Site branding" tab on
     And I am on site homepage
     Then ".navbar .logo" "css_element" should not exist
 
-  Scenario: Setting: Logo max-width - limit logo width readout from theme_config entry
+  Scenario Outline: Setting: Logo max-width - limit logo width readout from theme_config entry
     Given the following config values are set as admin:
-      | config                 | value | plugin            |
-      | maxlogowidth           | 100px | theme_boost_union |
+      | config                 | value      | plugin            |
+      | maxlogowidth           | <css-rule> | theme_boost_union |
     And the theme cache is purged and the theme is reloaded
     When I log in as "student1"
     And I am on site homepage
-    Then DOM element ".navbar-brand img.logo" should have computed style "max-width" "100px"
-    And DOM element ".navbar-brand img.logo" should have computed style "height" "auto"
+    Then DOM element ".navbar-brand img.logo" <should-have> computed style "<css-name>" "<css-rule>"
+    And DOM element ".navbar-brand img.logo" should have computed style "height" "<css-height>"
 
-  Scenario: Setting: Logo max-width - limit logo through admin settings - manual add the entry
-    When I log in as "admin"
-    And I navigate to "Appearance > Boost Union > Look" in site administration
-    And I click on "Site branding" "link" in the "#adminsettings .nav-tabs" "css_element"
-    And I set the field "Maximal width of logo" to "200px"
-    And I press "Save changes"
-    And the theme cache is purged and the theme is reloaded
-    And I am on site homepage
-    Then DOM element ".navbar-brand img.logo" should have computed style "max-width" "200px"
-    And DOM element ".navbar-brand img.logo" should have computed style "height" "auto"
+    Examples:
+      | css-name   | css-rule  | css-height | should-have     |
+      | max-width  | 100px     | auto       | should have     |
+      | max-width  | 10vw      | auto       | should have     |
+      | max-width  | 13%       | auto       | should have     |
+      | max-width  |           | 100%       | should not have |
 
   Scenario: Setting: Logo max-width - limit logo through admin settings - check regex to limit entry (countercheck)
     When I log in as "admin"
