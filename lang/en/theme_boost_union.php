@@ -574,6 +574,9 @@ $string['enablefooterbuttonboth'] = 'Enable on desktop, tablet and mobile';
 $string['enablefooterbuttondesktop'] = 'Enable on desktop and tablet only, hide on mobile (unchanged as presented by Moodle core)';
 $string['enablefooterbuttonmobile'] = 'Enable on mobile only, hide on desktop and tablet';
 $string['enablefooterbuttonhidden'] = 'Hide on all devices';
+// ... ... Setting: Suppress icons in front of the footer links.
+$string['footersuppressiconssetting'] = 'Suppress icons in front of the footer links';
+$string['footersuppressiconssetting_desc'] = 'With this setting, you can entirely suppress the icons in front of the footer links. \'Documentation for this page\' has a book icon, \'Services and support\' a life ring etc.';
 // ... ... Setting: Suppress 'Chat to course participants' link.
 $string['footersuppresschatsetting'] = 'Suppress \'Chat to course participants\' link';
 $string['footersuppresschatsetting_desc'] = 'With this setting, you can entirely suppress the \'Chat to course participants\' link in the footer. This link would otherwise appear within courses as soon as a communication room is added in a course\'s settings.';
@@ -1166,7 +1169,7 @@ $string['smartmenusmenulocationuser'] = 'User menu';
 $string['smartmenusmenumode'] = 'Menu mode';
 $string['smartmenusmenumode_help'] = '<p>Select the mode how the menu\'s items should be displayed.</p><ul><li>Submenu: The menu items is displayed as a submenu with the menu\'s title as parent node. This is the default option.</li><li>Inline: The menu\'s items are displayed directly in the navigation, one after another. Please note that this option is not supported for card type menus.</li></ul>';
 $string['smartmenusmenumoremenubehavior'] = 'More menu behavior';
-$string['smartmenusmenumoremenubehavior_help'] = '<p>Select what should happen if there are too many menus to fit in the menu location.</p><ul><li>Do not change anything: No particular behaviour will be enforced, excess menus will be moved into the \'More\' menu automatically.</li><li>Force into more menu: This mode moves the menu directly into the \'More\' menu even if there would still be space.</li><li>Keep outside of more menu: This mode keeps the menu outside of the \'More\' menu as long as possible.</li></ul>';
+$string['smartmenusmenumoremenubehavior_help'] = '<p>Select what should happen if there are too many menus to fit in the menu location.</p><ul><li>Do not change anything: No particular behaviour will be enforced, excess menus will be moved into the \'More\' menu automatically.</li><li>Force into more menu: This mode moves the menu directly into the \'More\' menu even if there would still be space.</li><li>Keep outside of more menu: This mode keeps the menu outside of the \'More\' menu as long as possible – moving other subsequent menus to the more menu instead if needed.</li></ul><p>Please note that this setting only affects menus which are located in the main navigation or in the menu bar area.</p>';
 $string['smartmenusmenumoremenubehaviorforceinto'] = 'Force into more menu';
 $string['smartmenusmenumoremenubehaviorkeepoutside'] = 'Keep outside of more menu';
 $string['smartmenusmenunothingtodisplay'] = 'There aren\'t any smart menus created yet. Please create your first smart menu to get things going.';

@@ -4,7 +4,7 @@ moodle-theme_boost_union
 Changes
 -------
 
-### Unreleased
+### v4.3-r13
 
 * 2024-05-14 - Improvement: Limit the max-width of the navbar logo if it is too broad or has a special aspect ratio #544
 * 2024-05-13 - Improvement: Suppress icons in footer, resolves #649
