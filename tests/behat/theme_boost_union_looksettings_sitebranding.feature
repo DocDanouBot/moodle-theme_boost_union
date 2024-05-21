@@ -100,7 +100,7 @@ Feature: Configuring the theme_boost_union plugin for the "Site branding" tab on
     And the theme cache is purged and the theme is reloaded
     When I log in as "student1"
     And I am on site homepage
-    Then DOM element ".navbar-brand img.logo" should-have computed style "<css-name>" "<css-rule>"
+    Then DOM element ".navbar-brand img.logo" should have computed style "<css-name>" "<css-rule>"
     And DOM element ".navbar-brand img.logo" should have computed style "height" "auto"
 
     Examples:
