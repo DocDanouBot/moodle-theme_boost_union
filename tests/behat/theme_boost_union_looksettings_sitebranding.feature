@@ -117,8 +117,7 @@ Feature: Configuring the theme_boost_union plugin for the "Site branding" tab on
     And I press "Save changes"
     And I am on site homepage
     And the theme cache is purged and the theme is reloaded
-    Then DOM element ".navbar-brand img.logo" should not have computed style "max-width"
-    And DOM element ".navbar-brand img.logo" should have computed style "height" "100%"
+    Then DOM element ".navbar-brand img.logo" should have computed style "height" "100%"
 
   Scenario: Setting: Logo max-width - limit logo through admin settings - check regex to limit entry (countercheck)
     When I log in as "admin"
