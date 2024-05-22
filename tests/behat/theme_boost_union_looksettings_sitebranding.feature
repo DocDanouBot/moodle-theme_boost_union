@@ -100,8 +100,8 @@ Feature: Configuring the theme_boost_union plugin for the "Site branding" tab on
     And the theme cache is purged and the theme is reloaded
     When I log in as "student1"
     And I am on site homepage
-    Then DOM element ".navbar-brand img.logo" should have computed style "<css-name>" "<css-rule>"
-    And DOM element ".navbar-brand img.logo" should have computed style "height" "auto"
+    Then DOM element ".navbar-brand .logo" should have computed style "<css-name>" "<css-rule>"
+    And DOM element ".navbar-brand .logo" should have computed style "height" "auto"
 
     Examples:
       | css-name   | css-rule  |
@@ -109,7 +109,8 @@ Feature: Configuring the theme_boost_union plugin for the "Site branding" tab on
       | max-width  | 10vw      |
       | max-width  | 13%       |
 
-  Scenario: Setting: Setting: Logo max-width - limit logo width readout from theme_config entry (countercheck)
+  @javascript
+  Scenario: Setting: Logo max-width - limit logo width readout from theme_config entry (countercheck)
     When I log in as "admin"
     And I navigate to "Appearance > Boost Union > Look" in site administration
     And I click on "Site branding" "link" in the "#adminsettings .nav-tabs" "css_element"
@@ -117,8 +118,9 @@ Feature: Configuring the theme_boost_union plugin for the "Site branding" tab on
     And I press "Save changes"
     And I am on site homepage
     And the theme cache is purged and the theme is reloaded
-    Then DOM element ".navbar-brand img.logo" should have computed style "height" "100%"
+    Then DOM element ".navbar-brand .logo" should have computed style "height" "100%"
 
+  @javascript
   Scenario: Setting: Logo max-width - limit logo through admin settings - check regex to limit entry (countercheck)
     When I log in as "admin"
     And I navigate to "Appearance > Boost Union > Look" in site administration
