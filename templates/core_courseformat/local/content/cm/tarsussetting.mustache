@@ -21,38 +21,23 @@
 
     Example context (json):
     {
-        "activityname": "Course announcements",
-        "groupicon": "i/groupv",
-        "groupalt": "Visible groups"
+
     }
 }}
 
-{{#isInteractive}}
-    {{#dropwdown}}
-        {{< core/local/dropdown/status}}
-            {{$ buttonclasses }}
-                {{#autohide}} v-parent-focus {{/autohide}}
-                tarsus-information btn btn-icon icon-no-margin
-            {{/ buttonclasses }}
-            {{$ buttoncontent }}
-                {{{groupicon}}}
-                <span class="tarsus-icon-info">{{groupalt}}</span>
-            {{/ buttoncontent }}
-        {{/ core/local/dropdown/status}}
-    {{/dropwdown}}
-{{/isInteractive}}
-{{^isInteractive}}
+
     <div
             data-region="tarsus-information"
             data-activityname="{{activityname}}"
             class="tarsus-information d-flex align-items-center justify-content-center icon-no-margin"
     >
         <button class="v-parent-focus tarsus-information btn btn-icon icon-no-margin">
-        {{#pix}}i/search, core, {{#str}}frontend_cm_tarsus_status, local_lai_connector{{/str}}{{/pix}}
-        <div class="tarsus-icon-info ml-1">{{#str}}frontend_cm_tarsus_status, local_lai_connector{{/str}}</div>
+            <img src="{{{config.wwwroot}}}/local/lai_connector/pix/brain.svg"
+                 alt="{{#str}}frontend_cm_tarsus_status, local_lai_connector{{/str}}"
+                 title="{{#str}}frontend_cm_tarsus_status, local_lai_connector{{/str}}">
         </button>
 
 
 
     </div>
-{{/isInteractive}}
+
